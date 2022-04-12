@@ -5,7 +5,9 @@ const logger = require('morgan');
 require('dotenv').config();
 const Router = require('./src/routes/resource');
 const app = express();
+const {connectToDB} = require('./src/db/mongoose');
 
+connectToDB();
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
