@@ -1,7 +1,6 @@
-const axios = require('axios').default;
-const config = require('config');
+const Joi = require('joi')
 const UserModel = require('../models/user.model');
-//const { usersSchema } = require("../schemas/stadiums.schemas");
+const { usersSchema } = require('../schemas/validate.schemas');
 
 async function getUsers(req, res) {
     try {
@@ -33,7 +32,7 @@ async function getByIdUser(req, res) {
 async function createUser(req, res) {
     try {
         const data = { username, email, password } = req.body;
-        //Joi.assert(data, usersSchema); //validate data
+        Joi.assert(data, usersSchema); //validate data
         const user = new UserModel({ username, email, password }); //create new user
         await user.save(); //save user in database
         return res.json(user)
@@ -63,7 +62,8 @@ async function deleteUser(req, res) {
 async function updateUser(req, res) {
     try {
         const { id } = (req.params)
-        const { username, email, password } = req.body;
+        const data = { username, email, password } = req.body;
+        Joi.assert(data, usersSchema); //validate data
         const user = await
             UserModel.findByIdAndUpdate(id, { username, email, password }, { new: true }) //update user by id
         if (!user) {
