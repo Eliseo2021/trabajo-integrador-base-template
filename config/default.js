@@ -1,6 +1,4 @@
 require('dotenv').config();
-
-require('dotenv').config();
 module.exports = {
     // API 
     services: {
@@ -12,7 +10,8 @@ module.exports = {
     // MONGODB_URL_DB = `host/database`
     database: {
         mongodb: {
-            MONGODB_DB:process.env.MONGODB_URL,
+            MONGODB_DB: process.env.MONGODB_URL,
         },
     },
+
 }
