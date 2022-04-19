@@ -33,7 +33,7 @@ async function createUser(req, res) {
     try {
         const data = { username, email, password } = req.body;
         Joi.assert(data, usersSchema); //validate data
-        const user = new UserModel({ username, email, password }); //create new user
+        const user = new UserModel({ username, email}); //create new user
         await user.save(); //save user in database
         return res.json(user)
     } catch (error) {
@@ -65,7 +65,7 @@ async function updateUser(req, res) {
         const data = { username, email, password } = req.body;
         Joi.assert(data, usersSchema); //validate data
         const user = await
-            UserModel.findByIdAndUpdate(id, { username, email, password }, { new: true }) //update user by id
+            UserModel.findByIdAndUpdate(id, { username, email }, { new: true }) //update user by id
         if (!user) {
             return res.status(404).json({
                 code: "bad_request",

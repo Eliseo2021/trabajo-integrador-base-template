@@ -31,9 +31,10 @@ async function getByIdStadium(req, res) {
 
 async function createStadium(req, res) {
     try {
-        const data = { stadiumname, imageURL, description, capacity, location, map } = req.body;
+        const data = { stadiumname, imageURL, description, capacity, location, map, trk } = req.body;
         Joi.assert(data, stadiumsSchema); //validate data
-        const Stadium = new StadiumModel({ stadiumname, imageURL, description, capacity, location, map }); //create new Stadium
+        const Stadium = new StadiumModel({ stadiumname, imageURL, description, capacity, location, map, trk }); //create new Stadium
+        //console.log(Stadium);
         await Stadium.save(); //save Stadium in database
         return res.json(Stadium)
     } catch (error) {
