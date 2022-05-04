@@ -73,3 +73,21 @@ Actividad #2: Programación de los endpoints para un CRUD de un recurso. Reempla
 -   DELETE :: /resources/:id ---> Borra un elemento de la base de datos.
     
 -   PATCH :: /resources/:id ---> Edita un resource con los datos enviados en body. Verificar body con Joi.
+
+Respuesta:
+
+aplicacion Node express desplegada en heroku:
+### 1 https://app-backend-stadiums.herokuapp.com/stadiums
+
+![Image 3](src/assets/back.jpg)
+
+### 2   -> * Aplicaion WEB.
+![Image 3](src/assets/web.jpg)
+
+
+### 3   -> * Aplicaion movil.
+![Image 1](src/assets/movil.jpg)
+
+
+
+

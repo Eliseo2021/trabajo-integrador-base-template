@@ -1,6 +1,6 @@
 const Joi = require('joi')
-const StadiumModel = require('../models/stadium.model');
 const { stadiumsSchema } = require('../schemas/validate.schemas');
+const StadiumModel = require('../models/stadium.model');
 
 async function getStadiums(req, res) {
     try {
